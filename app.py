@@ -15,7 +15,9 @@ st.set_page_config(
 # ------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("gold_egp_gram_first_last_2021_2026.csv")
+    url = "https://raw.githubusercontent.com/canadaincan-cmd/repo/main/gold_egp_gram_first_last_2021_2026.csv"
+    df = pd.read_csv(url)
+
     df = df[df["type"] == "close price"]
     df["ds"] = pd.to_datetime(df["date"], format="%m/%d/%y")
     df["y"] = df["price_per_gram"]
