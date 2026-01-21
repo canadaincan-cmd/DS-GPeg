@@ -7,7 +7,7 @@ st.set_page_config(page_title="Gold Price Forecast Egypt", layout="centered")
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("gold_egp_gram_first_last_2021_2026.csv")
+    df = pd.read_csv("gold_price_first_last_mday_2021_2026")
     df = df[df["type"] == "close price"]
     df["ds"] = pd.to_datetime(df["date"], format="%m/%d/%y")
     df["y"] = df["price_per_gram"]
